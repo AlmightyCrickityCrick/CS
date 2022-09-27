@@ -77,9 +77,6 @@ ex: ![Mapping of the corners](https://en.wikipedia.org/wiki/Playfair_cipher#/med
     - Caesar cipher with one key used for substitution, and a permutation of the alphabet,
     - Vigenere cipher,
     - Playfair cipher.
-    - If you want you can implement other.
-
-3. Structure the project in methods/classes/packages as neeeded.
 
 
 ## Implementation:

@@ -84,7 +84,7 @@ ex: ![Mapping of the corners](https://en.wikipedia.org/wiki/Playfair_cipher#/med
 
 ## Implementation:
 
-###Classical Caesar Cypher
+### Classical Caesar Cypher
 &ensp;&ensp;&ensp;The first program shows the implementation of the Caesar Cypher that saves the case of the letters in the message:
 ```
 class CaesarCypher(var key:Int) {
@@ -118,7 +118,7 @@ of the alphabet. Then the obtained letter is transfered to the cyphertext and it
 
 &ensp;&ensp;&ensp;The decryption is similar, only the key and a's code is substracted from the message character, and z's code is added. 
 
-###Permutation Caesar Cypher
+### Permutation Caesar Cypher
 &ensp;&ensp;&ensp; As described before, a substitution technique is also used within it, but instead of employing the original alphabet, a separate one needs to be created.
 For that, first within the constants the base alphabet is declared as a string for ease of use.
 and then as shown below one by one, unique characters from the set permutation key are used to populate the alphabet
@@ -145,12 +145,12 @@ override fun encrypt(m: String):String{
         return cyphertext
     }
 ```
-&ensp;&ensp;&ensp;The decryption is similar, only instead of adding the key, it is substracted.
+&ensp;&ensp;&ensp; The decryption is similar, only instead of adding the key, it is substracted.
 ```
  plaintext+= if(m[c].isUpperCase()) permutatedAlphabet[(permutatedAlphabet.indexOf(cyphertext[c])-key) %Constants.ALPHABET_SIZE].uppercase() else
                 permutatedAlphabet[(permutatedAlphabet.indexOf(cyphertext[c])-key) %Constants.ALPHABET_SIZE]
 ```
-###Vigenere Cypher
+### Vigenere Cypher
 &ensp;&ensp;&ensp; As was mentioned previously, the Vigenere cypher has a pretty straightforward implementation. Each letter from the message is searched for its index within the alphabet constant, and then added to the appropriate index of letter from the key.
 In this case, however, instead of repeating the key several times within a String,
 the letter to be added to the current character in the message is calculated using the expression:
@@ -186,7 +186,7 @@ class VigenereCypher(var key: String) :Cypher() {
     }
 }
 ```
-&ensp;&ensp;&ensp;The decryption is similar, except the appropriate key letter is subtracted from the cypher message.
+&ensp;&ensp;&ensp; The decryption is similar, except the appropriate key letter is subtracted from the cypher message.
 
 ###Playfair Cypher
 &ensp;&ensp;&ensp; The playfair cypher has a more unusual implementation. First the permutated alphabet is declared and ten created just like in the Caesar Permutation Cypher.
@@ -273,7 +273,7 @@ private fun getCypher(i:Char, j:Char, isDecryption:Boolean):String{
 ![algorithms at work](./img.png)
 
 
-##Conclusion
+## Conclusion
 &ensp;&ensp;&ensp; Although the development of Cryptography has moved forward
 and the Classical Cyphers have been broken long ago, they still hold an important place in history 
 and are worth having their mechanisms be studied, as one cannot progress without knowing the basics. 

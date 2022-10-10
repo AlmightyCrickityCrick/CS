@@ -2,6 +2,7 @@ import lab1.CaesarCypher
 import lab1.CaesarPermutation
 import lab1.Playfair
 import lab1.VigenereCypher
+import kotlin.math.abs
 
 fun main() {
     var c = CaesarCypher(1)

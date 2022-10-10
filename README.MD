@@ -13,5 +13,6 @@
 ## Laboratory work tasks
 
 [Laboratory Work #1](https://github.com/AlmightyCrickityCrick/CS/tree/main/src/main/kotlin/lab1)
+
 [Laboratory Work #2](https://github.com/AlmightyCrickityCrick/CS/tree/main/src/main/kotlin/lab2)
 

@@ -345,7 +345,7 @@ override fun decrypt(m: String): String {
 ## Evaluation:
 &ensp;&ensp;&ensp; The algorithms perform appropriately both encrypting and decrypting the 
 messages in a manner that preserves their original text for the receiver.
-![algorithms at work](./images/img1.png)
+![algorithms at work](https://github.com/AlmightyCrickityCrick/CS/blob/main/src/main/resources/images/img1.PNG)
 
 ## Conclusions:
 Within this laboratory work we have studied and implemented two modern symmetric ciphers. One Stream Cipher (A5/1) and

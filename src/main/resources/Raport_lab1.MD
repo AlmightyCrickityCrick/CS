@@ -26,7 +26,7 @@ where:
 
 &ensp;&ensp;&ensp; Judging by the encryption mechanism one can conclude that this cipher is pretty easy to break. In fact, a brute force attack would have __*O(nm)*__ complexity, where __*n*__ would be the size of the alphabet and __*m*__ the size of the message. This is why there were other variations of this cipher, which are supposed to make the cryptanalysis more complex.
 
-&ensp;&ensp;&ensp;A way to add complexity to this cypher would be to use a permutated alphabet. This type of Caesar Cypher can also be denoted as Caesar Permutation Cypher. The mechanism of its implementation is defined by the insertion of a keyword before the alphabet to add entropy to the base letter order, after which, using the newly acquired alphabet the previously explained classical substitution is performed for 
+&ensp;&ensp;&ensp;A way to add complexity to this cypher would be to use a permutated alphabet. This type of Caesar cyphers.Cypher can also be denoted as Caesar Permutation cyphers.Cypher. The mechanism of its implementation is defined by the insertion of a keyword before the alphabet to add entropy to the base letter order, after which, using the newly acquired alphabet the previously explained classical substitution is performed for 
 each letter in the plain text.
 
 &ensp;&ensp;&ensp; However, despite this addition, the Caesar Permutation cypher is still vulnerable 
@@ -52,7 +52,7 @@ enough time to match the letters of the message, after which to each letter from
 
 &ensp;&ensp;&ensp;As one can see, the letter A is mapped to more than one other letter, going from E to R, which makes guessing it a lot more difficult without the key.
 
-&ensp;&ensp;&ensp;Another, more exotic cypher would be the Playfair Cypher, which uses a 5x5 square for the mapping of the alphabet, skipping over a less used letter like Q or Z or grouping I and J together to achieve its form. Like the Caesar Permutation, it also employs an 
+&ensp;&ensp;&ensp;Another, more exotic cypher would be the Playfair cyphers.Cypher, which uses a 5x5 square for the mapping of the alphabet, skipping over a less used letter like Q or Z or grouping I and J together to achieve its form. Like the Caesar Permutation, it also employs an 
 additional key before the creation of the square. It is a digraph substitution cypher, encrypting digraphs instead of single letters in each iteration.
 
 &ensp;&ensp;&ensp;First, the key is placed, then the square is created. After which, the message is separated into digraphs. If the message has two identical letters in a digraph, they are separated through a 
@@ -81,8 +81,8 @@ ex: ![Mapping of the corners](https://en.wikipedia.org/wiki/Playfair_cipher#/med
 
 ## Implementation:
 
-### Classical Caesar Cypher
-&ensp;&ensp;&ensp;The first program shows the implementation of the Caesar Cypher that saves the case of the letters in the message:
+### Classical Caesar cyphers.Cypher
+&ensp;&ensp;&ensp;The first program shows the implementation of the Caesar cyphers.Cypher that saves the case of the letters in the message:
 ```
 class CaesarCypher(var key:Int) {
     fun encrypt(m:String) : String{
@@ -115,7 +115,7 @@ of the alphabet. Then the obtained letter is transfered to the cyphertext and it
 
 &ensp;&ensp;&ensp;The decryption is similar, only the key and a's code is substracted from the message character, and z's code is added. 
 
-### Permutation Caesar Cypher
+### Permutation Caesar cyphers.Cypher
 &ensp;&ensp;&ensp; As described before, a substitution technique is also used within it, but instead of employing the original alphabet, a separate one needs to be created.
 For that, first within the constants the base alphabet is declared as a string for ease of use.
 and then as shown below one by one, unique characters from the set permutation key are used to populate the alphabet
@@ -147,7 +147,7 @@ override fun encrypt(m: String):String{
  plaintext+= if(m[c].isUpperCase()) permutatedAlphabet[(permutatedAlphabet.indexOf(cyphertext[c])-key) %Constants.ALPHABET_SIZE].uppercase() else
                 permutatedAlphabet[(permutatedAlphabet.indexOf(cyphertext[c])-key) %Constants.ALPHABET_SIZE]
 ```
-### Vigenere Cypher
+### Vigenere cyphers.Cypher
 &ensp;&ensp;&ensp; As was mentioned previously, the Vigenere cypher has a pretty straightforward implementation. Each letter from the message is searched for its index within the alphabet constant, and then added to the appropriate index of letter from the key.
 In this case, however, instead of repeating the key several times within a String,
 the letter to be added to the current character in the message is calculated using the expression:
@@ -155,7 +155,7 @@ the letter to be added to the current character in the message is calculated usi
 (index of char) mod length of the key.
 
 ```
-class VigenereCypher(var key: String) :Cypher() {
+class VigenereCypher(var key: String) :cyphers.Cypher() {
     override fun encrypt(m:String):String{
         var cyphertex t =  "" 
         var plaintext = m.lowercase()
@@ -185,8 +185,8 @@ class VigenereCypher(var key: String) :Cypher() {
 ```
 &ensp;&ensp;&ensp; The decryption is similar, except the appropriate key letter is subtracted from the cypher message.
 
-###Playfair Cypher
-&ensp;&ensp;&ensp; The playfair cypher has a more unusual implementation. First the permutated alphabet is declared and ten created just like in the Caesar Permutation Cypher.
+###Playfair cyphers.Cypher
+&ensp;&ensp;&ensp; The playfair cypher has a more unusual implementation. First the permutated alphabet is declared and ten created just like in the Caesar Permutation cyphers.Cypher.
 ```
     override var permutatedAlphabet:String = ""
     var wheel=Array(5){CharArray(5)}

@@ -1,6 +1,6 @@
-package implementations.classical
+package cyphers.implementations.classical
 
-import Cypher
+import cyphers.Cypher
 
 class Playfair(var keyword:String): Cypher(), Permutable {
     override var permutatedAlphabet:String = ""

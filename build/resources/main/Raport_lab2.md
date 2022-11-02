@@ -35,7 +35,7 @@
 
 #### A5/1 Cipher
 
-&ensp;&ensp;&ensp; The A5/1 Cypher is a stream cipher used to provide 
+&ensp;&ensp;&ensp; The A5/1 cyphers.Cypher is a stream cipher used to provide 
 over-the-air communication privacy in the GSM cellular telephone standard. 
 It is one of several implementations of the A5 security protocol. 
 It was initially kept secret, but became public knowledge through leaks and reverse engineering.
@@ -113,7 +113,7 @@ fun setKey(key: String): Boolean {
     }
 ```
 
-&ensp;&ensp;&ensp; The cipher has an encryption function that it overrides from the Cypher class implemented in the previous laboratory work.
+&ensp;&ensp;&ensp; The cipher has an encryption function that it overrides from the cyphers.Cypher class implemented in the previous laboratory work.
 
 ```
 override fun encrypt(m: String): String {
@@ -345,7 +345,7 @@ override fun decrypt(m: String): String {
 ## Evaluation:
 &ensp;&ensp;&ensp; The algorithms perform appropriately both encrypting and decrypting the 
 messages in a manner that preserves their original text for the receiver.
-![algorithms at work](./images/img1.png)
+![algorithms at work](https://github.com/AlmightyCrickityCrick/CS/blob/main/src/main/resources/images/img1.PNG)
 
 ## Conclusions:
 Within this laboratory work we have studied and implemented two modern symmetric ciphers. One Stream Cipher (A5/1) and

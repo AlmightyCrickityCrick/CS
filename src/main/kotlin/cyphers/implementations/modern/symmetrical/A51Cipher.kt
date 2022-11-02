@@ -1,6 +1,6 @@
-package implementations.modern.symmetrical
+package cyphers.implementations.modern.symmetrical
 
-import Cypher
+import cyphers.Cypher
 
 class A51Cipher: Cypher() {
     private var key: String? = null

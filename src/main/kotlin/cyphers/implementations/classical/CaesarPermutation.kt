@@ -1,6 +1,6 @@
-package implementations.classical
+package cyphers.implementations.classical
 
-import Cypher
+import cyphers.Cypher
 
 class CaesarPermutation(var key:Int, var permutation:String) : Cypher(), Permutable {
     override lateinit var permutatedAlphabet: String

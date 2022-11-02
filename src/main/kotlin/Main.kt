@@ -1,10 +1,12 @@
-import implementations.classical.CaesarCypher
-import implementations.classical.CaesarPermutation
-import implementations.classical.Playfair
-import implementations.classical.VigenereCypher
-import implementations.modern.symmetrical.A51Cipher
-import implementations.modern.symmetrical.ConstantsLab2
-import implementations.modern.symmetrical.DES
+import cyphers.implementations.classical.CaesarCypher
+import cyphers.implementations.classical.CaesarPermutation
+import cyphers.implementations.classical.Playfair
+import cyphers.implementations.classical.VigenereCypher
+import cyphers.implementations.modern.asymmetrical.Constants3
+import cyphers.implementations.modern.asymmetrical.DiffieHellman
+import cyphers.implementations.modern.symmetrical.A51Cipher
+import cyphers.implementations.modern.symmetrical.ConstantsLab2
+import cyphers.implementations.modern.symmetrical.DES
 
 fun main() {
     //Classic Ciphers
@@ -46,6 +48,17 @@ fun main() {
     plaintext = des.decrypt(cyphertext)
     println(plaintext)
 
+    println("Diffie Hellman Key Exchange")
+    var commonP = Constants3.getPrime(1, 20000)
+    var commonG = Constants3.getPrimitiveRoot(commonP)
+    var dh1 = DiffieHellman(commonG, commonP)
+    var dh2 = DiffieHellman(commonG, commonP)
+    dh1.createPublicKey()
+    dh2.createPublicKey()
+    println("PK1 ${dh1.public_key}  PK2 ${dh2.public_key}")
+    dh1.generateSecretKey(dh2.public_key)
+    dh2.generateSecretKey(dh1.public_key)
+    println("Privk1 ${dh1.shared_secret_key} Privk2 ${dh2.shared_secret_key}")
 }
 
 fun GenerateBinKey(i:Int):String{

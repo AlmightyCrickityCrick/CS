@@ -1,4 +1,4 @@
-package implementations.classical
+package cyphers.implementations.classical
 
 object Constants {
     val ALPHABET = "abcdefghijklmnopqrstuvwxyz"

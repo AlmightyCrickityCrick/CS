@@ -1,6 +1,6 @@
-package implementations.classical
+package cyphers.implementations.classical
 
-import Cypher
+import cyphers.Cypher
 
 class VigenereCypher(var key: String) : Cypher() {
     override fun encrypt(m:String):String{

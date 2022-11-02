@@ -1,4 +1,4 @@
-package implementations.classical
+package cyphers.implementations.classical
 class CaesarCypher(var key:Int) {
     fun encrypt(m:String) : String{
         var cyphertext=""

@@ -1,0 +1,21 @@
+package hash.login_service
+
+import hash.security_service.HashService
+
+data class User(var id:Int, var username:String, var password:String)
+
+class Database {
+    var db = ArrayList<User>()
+
+    fun addUser(username: String, password: String):Int{
+        db.add(User(db.size, username, HashService.hashString(password)))
+        return db.size - 1
+    }
+
+    fun getUser(id: Int):User?{
+        for (u in db)
+            if (u.id == id) return u
+        return null
+    }
+
+}

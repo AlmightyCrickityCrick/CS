@@ -93,7 +93,7 @@ init {
         public_key = Constants3.manualPower(generator.toLong(), self_key.toLong(), P.toLong())
     }
 ```
-Then, using the same operation but with the received public key as base, the interlocutors will generate the 
+&ensp;&ensp;&ensp;Then, using the same operation but with the received public key as base, the interlocutors will generate the 
 private key that will be used for further symmetric encryption of messages.
 
 ```
@@ -101,11 +101,11 @@ override fun generateSecretKey(pk:Long) {
         shared_secret_key = Constants3.manualPower(pk, self_key.toLong(), P.toLong())
     }
 ```
-An important detail is that the shared secret key must be the same for both users.
+&ensp;&ensp;&ensp; An important detail is that the shared secret key must be the same for both users.
 
 ## Evaluation:
 &ensp;&ensp;&ensp; The algorithm performs appropriately with the public and self private keys being different, while the resulted shared private key being the same.
 ![algorithms at work](https://github.com/AlmightyCrickityCrick/CS/blob/main/src/main/resources/images/img2.png)
 
 ## Conclusion:
-Within this laboratory work we studied the mechanism for asymmetric encryption, which uses as base modulo arithmetic.    
+&ensp;&ensp;&ensp; Within this laboratory work we studied the mechanism for asymmetric encryption, which uses as base modulo arithmetic.    

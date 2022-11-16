@@ -1,6 +1,6 @@
 package services.login_service
 
-import services.hashing_service.HashService
+import services.hashing_service.HashingService
 
 data class User(var id:Int, var username:String, var password:String)
 
@@ -8,7 +8,7 @@ class Database {
     var db = ArrayList<User>()
 
     fun addUser(username: String, password: String):Int{
-        db.add(User(db.size, username, HashService.hashString(password)))
+        db.add(User(db.size, username, HashingService.hashString(password)))
         return db.size - 1
     }
 

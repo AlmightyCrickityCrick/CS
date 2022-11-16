@@ -6,7 +6,7 @@ import java.security.MessageDigest
 
 
 
-object HashService {
+object HashingService {
     var algorithm = "SHA-256"
     fun hashString(string: String):String{
         var encodedhash = getDigest(string)

@@ -1,4 +1,4 @@
-package cyphers.implementations.modern.symmetrical
+package ciphers.implementations.modern.symmetrical
 
 object ConstantsLab2 {
     var IP = intArrayOf(

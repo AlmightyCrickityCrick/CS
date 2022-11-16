@@ -1,18 +1,15 @@
-package cyphers
+package ciphers
 
-import cyphers.implementations.classical.CaesarCypher
-import cyphers.implementations.classical.CaesarPermutation
-import cyphers.implementations.classical.Playfair
-import cyphers.implementations.classical.VigenereCypher
-import cyphers.implementations.modern.asymmetrical.Constants3
-import cyphers.implementations.modern.asymmetrical.DiffieHellman
-import cyphers.implementations.modern.symmetrical.A51Cipher
-import cyphers.implementations.modern.symmetrical.ConstantsLab2
-import cyphers.implementations.modern.symmetrical.DES
+import ciphers.implementations.classical.*
+import ciphers.implementations.modern.asymmetrical.Constants3
+import ciphers.implementations.modern.asymmetrical.DiffieHellman
+import ciphers.implementations.modern.symmetrical.A51Cipher
+import ciphers.implementations.modern.symmetrical.ConstantsLab2
+import ciphers.implementations.modern.symmetrical.DES
 
 fun testCiphers(){
     //Classic Ciphers
-    var c = CaesarCypher(1)
+    var c = CaesarCipher(1)
     var j = c.encrypt("HellozZ")
     println("Caesar encrypt $j")
     var m = c.decrypt(j)
@@ -24,7 +21,7 @@ fun testCiphers(){
     m = cp.decrypt(j)
     println("Caesar Permutation decrypt $m")
 
-    var vc = VigenereCypher("super")
+    var vc = VigenereCipher("super")
     j = vc.encrypt("perasperaadastra")
     println("Vigenere encrypt $j")
     m = vc.decrypt(j)

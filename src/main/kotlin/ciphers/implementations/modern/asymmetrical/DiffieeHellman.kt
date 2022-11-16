@@ -1,7 +1,4 @@
-package cyphers.implementations.modern.asymmetrical
-
-import cyphers.Cypher
-import kotlin.math.sqrt
+package ciphers.implementations.modern.asymmetrical
 
 class DiffieHellman(var generator:Int, var P:Int): KeyGenerator() {
     private var self_key = 0

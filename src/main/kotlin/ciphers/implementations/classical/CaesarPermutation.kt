@@ -1,8 +1,8 @@
-package cyphers.implementations.classical
+package ciphers.implementations.classical
 
-import cyphers.Cypher
+import ciphers.Cipher
 
-class CaesarPermutation(var key:Int, var permutation:String) : Cypher(), Permutable {
+class CaesarPermutation(var key:Int, var permutation:String) : Cipher(), Permutable {
     override lateinit var permutatedAlphabet: String
     override fun encrypt(m: String):String{
         if (!this::permutatedAlphabet.isInitialized) setAlphabet(permutation)

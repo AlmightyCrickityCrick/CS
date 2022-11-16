@@ -1,8 +1,8 @@
-package cyphers.implementations.modern.symmetrical
+package ciphers.implementations.modern.symmetrical
 
-import cyphers.Cypher
+import ciphers.Cipher
 
-class A51Cipher: Cypher() {
+class A51Cipher: Cipher() {
     private var key: String? = null
     val REG_X_LENGTH = 19
     val REG_Y_LENGTH = 22

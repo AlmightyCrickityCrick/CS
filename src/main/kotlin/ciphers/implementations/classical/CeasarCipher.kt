@@ -1,6 +1,9 @@
-package cyphers.implementations.classical
-class CaesarCypher(var key:Int) {
-    fun encrypt(m:String) : String{
+package ciphers.implementations.classical
+
+import ciphers.Cipher
+
+class CaesarCipher(var key:Int) :Cipher(){
+    override fun encrypt(m:String) : String{
         var cyphertext=""
         var plaintext = m.lowercase()
         for (c in 0 until plaintext.length){
@@ -10,7 +13,7 @@ class CaesarCypher(var key:Int) {
         return cyphertext
     }
     
-    fun decrypt(m:String):String {
+    override fun decrypt(m:String):String {
         var plaintext = ""
         var cypherText = m.lowercase()
         for (c in 0 until cypherText.length) {

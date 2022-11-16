@@ -1,6 +1,6 @@
-package hash.login_service
+package services.login_service
 
-import hash.security_service.HashService
+import services.hashing_service.HashService
 
 class LoginService {
     lateinit var db :Database

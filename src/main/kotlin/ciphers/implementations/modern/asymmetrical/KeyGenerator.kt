@@ -1,4 +1,4 @@
-package cyphers.implementations.modern.asymmetrical
+package ciphers.implementations.modern.asymmetrical
 
 abstract class KeyGenerator {
     abstract fun createPublicKey()

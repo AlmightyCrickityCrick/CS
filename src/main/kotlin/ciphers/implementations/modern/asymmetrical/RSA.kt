@@ -1,14 +1,14 @@
-package hash.security_service
+package ciphers.implementations.modern.asymmetrical
 
-import cyphers.Cypher
+import ciphers.*
 import java.nio.charset.StandardCharsets
 import java.security.KeyPairGenerator
 import java.security.PrivateKey
 import java.security.PublicKey
 import java.util.*
-import javax.crypto.Cipher
+import javax.crypto.*
 
-class RSAEncryptionService :Cypher(){
+class RSA : ciphers.Cipher(){
     var algorithm = "RSA"
     var size = 2048
     lateinit var publicKey: PublicKey
@@ -30,8 +30,8 @@ class RSAEncryptionService :Cypher(){
     }
     fun encrypt(m:String, key:String):String{
         var useKey = if(key == "private") privateKey else publicKey
-        val encryptCipher = Cipher.getInstance(algorithm)
-        encryptCipher.init(Cipher.ENCRYPT_MODE, useKey)
+        val encryptCipher = javax.crypto.Cipher.getInstance(algorithm)
+        encryptCipher.init(javax.crypto.Cipher.ENCRYPT_MODE, useKey)
         var secretMessageBytes = m.toByteArray(StandardCharsets.UTF_8)
         var encryptedMessageBytes = encryptCipher.doFinal(secretMessageBytes)
         return Base64.getEncoder().encodeToString(encryptedMessageBytes)
@@ -44,8 +44,8 @@ class RSAEncryptionService :Cypher(){
     fun decrypt(m:String, key: String):String{
         var message = Base64.getDecoder().decode(m)
         var useKey = if(key == "private") privateKey else publicKey
-        val decryptCipher = Cipher.getInstance(algorithm)
-        decryptCipher.init(Cipher.DECRYPT_MODE, useKey)
+        val decryptCipher = javax.crypto.Cipher.getInstance(algorithm)
+        decryptCipher.init(javax.crypto.Cipher.DECRYPT_MODE, useKey)
         var decryptedMessageBytes = decryptCipher.doFinal(message)
         return String(decryptedMessageBytes, StandardCharsets.UTF_8)
     }

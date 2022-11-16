@@ -1,6 +1,6 @@
-package hash.messaging_service
+package services.messaging_service
 
-import hash.security_service.DigitalSignatureService
+import services.digital_signature_service.DigitalSignatureService
 
 class MessagingService {
 

@@ -1,6 +1,6 @@
-package hash.login_service
+package services.login_service
 
-import hash.security_service.HashService
+import services.hashing_service.HashService
 
 data class User(var id:Int, var username:String, var password:String)
 

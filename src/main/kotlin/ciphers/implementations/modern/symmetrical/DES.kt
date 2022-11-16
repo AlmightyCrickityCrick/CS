@@ -1,9 +1,9 @@
-package cyphers.implementations.modern.symmetrical
+package ciphers.implementations.modern.symmetrical
 
-import cyphers.Cypher
+import ciphers.Cipher
 
 
-class DES(var key:String) : Cypher() {
+class DES(var key:String) : Cipher() {
     fun permutation(sequence: IntArray, input: String): String {
         var input = input
         var output: String = ""

@@ -25,7 +25,7 @@
 
 ### SHA-256
 &ensp;&ensp;&ensp; SHA 256 is a part of the SHA 2 family of algorithms, where SHA stands for Secure Hash Algorithm. Published in 2001, it was a joint effort between the NSA and NIST to introduce a successor to the SHA 1 family, which was slowly losing strength against brute force attacks.
-The significance of the 256 in the name stands for the final hash digest value, i.e. irrespective of the size of plaintext/cleartext, the hash value will always be 256 bits.
+The significance of the 256 in the name stands for the final services.hashing_service digest value, i.e. irrespective of the size of plaintext/cleartext, the services.hashing_service value will always be 256 bits.
 
 &ensp;&ensp;&ensp; The steps used in the hashing of message with SHA-256 are the following:
 1. Pre-processing of the text:
@@ -33,9 +33,9 @@ The significance of the 256 in the name stands for the final hash digest value, 
    * appending 1 to the end, 
    * padding with 0's until 64 bits remain till reaching multiple of 512 bits, 
    * adding  64 bits to the end, where the 64 bits are a big-endian integer representing the length of the original input in binary.
-2. Initialization of hash values (8 hardcoded constants that represent the first 32 bits of the fractional parts of the square roots of the first 8 primes)
+2. Initialization of services.hashing_service values (8 hardcoded constants that represent the first 32 bits of the fractional parts of the square roots of the first 8 primes)
 3. Initialization Round constants (Each value (0-63) is the first 32 bits of the fractional parts of the cube roots of the first 64 primes (2 - 311))
-4. Chunk loop (for each chunk of 512 bits from the processed message, iterate through a loop to mutate the hash values)
+4. Chunk loop (for each chunk of 512 bits from the processed message, iterate through a loop to mutate the services.hashing_service values)
 5. Creation of message schedule
 6. Compression the message
 7. Modification of final results.
@@ -44,7 +44,7 @@ The significance of the 256 in the name stands for the final hash digest value, 
 
 &ensp;&ensp;&ensp; A digital signature is an electronic, encrypted, stamp of authentication on digital information such as email messages, macros, or electronic documents. A signature confirms that the information originated from the signer and has not been altered.
 
-&ensp;&ensp;&ensp; In order to create digital signatures, the initial message or text needs to be hashed to get the digest. After that, the digest is to be encrypted using a public key encryption cipher with the private key of the user. Having this, the obtained digital signature can be decrypted with the public key and the hash can be compared with an additional hash computed from the received plaintext message to check the integrity of it.
+&ensp;&ensp;&ensp; In order to create digital signatures, the initial message or text needs to be hashed to get the digest. After that, the digest is to be encrypted using a public key encryption cipher with the private key of the user. Having this, the obtained digital signature can be decrypted with the public key and the services.hashing_service can be compared with an additional services.hashing_service computed from the received plaintext message to check the integrity of it.
 
 
 ## Objectives:
@@ -83,8 +83,8 @@ for (u in db)
 ```
 &ensp;&ensp;&ensp; The Hashing of the password is executed within the HashService 
 singleton object, within the function hashString. It utilizes the java.security 
-library for obtaining the Digest of the string. To hash the password introduced by the user, an instance of MessageDigest is generated 
-based on the SHA-256 algorithm. Then the message is encoded into a byte array and the encoded hash is produced based on the values within the array, according to the declared algorithm.
+library for obtaining the Digest of the string. To services.hashing_service the password introduced by the user, an instance of MessageDigest is generated 
+based on the SHA-256 algorithm. Then the message is encoded into a byte array and the encoded services.hashing_service is produced based on the values within the array, according to the declared algorithm.
 
 ```
 val digest = MessageDigest.getInstance(algorithm)
@@ -93,12 +93,12 @@ val encodedhash = digest.digest(
         )
         
 ```
-&ensp;&ensp;&ensp;After this the hash is transformed into a string of hex for ease of reading.  
+&ensp;&ensp;&ensp;After this the services.hashing_service is transformed into a string of hex for ease of reading.  
 
 ```
 var hexString = ""
-        for (i in hash.indices) {
-            val hex = Integer.toHexString(0xff and hash[i].toInt())
+        for (i in services.hashing_service.indices) {
+            val hex = Integer.toHexString(0xff and services.hashing_service[i].toInt())
             if (hex.length == 1) {
                 hexString+='0'
             }
@@ -110,7 +110,7 @@ var hexString = ""
 ```
 var x = db.addUser("Lina S", "123456f")
 var hashedPassword = HashService.hashString("123456f")
-println("Password in database ${db.getUser(x)?.password}  password hash $hashedPassword")
+println("Password in database ${db.getUser(x)?.password}  password services.hashing_service $hashedPassword")
 if(db.getUser(x)?.password == hashedPassword) println("The hashes of passwords are equal")
 ```
 
@@ -127,18 +127,18 @@ var dss = DigitalSignatureService()
 var signature = dss.getDigitalSignature(message)
 dss.verifyDigitalSignature(signature)
 ```
-&ensp;&ensp;&ensp; Upon the initialization of the DigitalSignature, an instance of the RSAEncryptionService is created.
+&ensp;&ensp;&ensp; Upon the initialization of the DigitalSignature, an instance of the RSA is created.
 ```
-var encryptionService :RSAEncryptionService = RSAEncryptionService()
+var  encryptionService:RSA = RSA()
 ```
 &ensp;&ensp;&ensp; which will later be used for encryption and decryption of the digitalSignature(encryption/decryption of the hashing of the original massage)
 
 &ensp;&ensp;&ensp; Within the getDigitalSignature method, the previously mentioned HashService is called to receive a digest of the message sent by users, after which it is encrypted using RSA with the user's private key and then sent as a digitalSignature component, along with the plaintext message and the user's public key within a Triple data structure.
 
 ```
-var hash = HashService.hashString(s)
-var digitalSignature = encryptionService.encrypt(hash, "private")
-return Triple<String, String, PublicKey>(s, digitalSignature, encryptionService.publicKey)
+var services.hashing_service = HashService.hashString(s)
+var digitalSignature = encryptionService.encrypt(services.hashing_service, "private")
+return Triple<String, String, PublicKey>(s, digitalSignature, .publicKey)
 ```
 &ensp;&ensp;&ensp; Within the RSAEncryptionSevice, during an object's initialization the public and private key of a user are generated 
 through the KeyPairGenerator.
@@ -167,13 +167,13 @@ decryptCipher.init(Cipher.DECRYPT_MODE, useKey)
 var decryptedMessageBytes = decryptCipher.doFinal(message)
 ```
 &ensp;&ensp;&ensp; For the verification of the DigitalSignature, the Triple obtained through the getDigitalSignature method is decomposed into its elements.
-The digitalSignature itself is decrypted through the RSA algorithm using the public key of the user, the plain message is hashed through SHA-256 and then the two values of the hash are compared to determine if the message has been tempered with.
+The digitalSignature itself is decrypted through the RSA algorithm using the public key of the user, the plain message is hashed through SHA-256 and then the two values of the services.hashing_service are compared to determine if the message has been tempered with.
 
 ```
 var decryptedHash = encryptionService.decrypt(signature.second, "public")
-var hash = HashService.hashString(signature.first)
- if (hash == decryptedHash) {
-        println(hash)
+var services.hashing_service = HashService.hashString(signature.first)
+ if (services.hashing_service == decryptedHash) {
+        println(services.hashing_service)
         println(decryptedHash)
         println("The message hasn't been tampered")
         }

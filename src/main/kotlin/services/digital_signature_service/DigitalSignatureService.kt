@@ -1,9 +1,11 @@
-package hash.security_service
+package services.digital_signature_service
 
+import ciphers.implementations.modern.asymmetrical.RSA
+import services.hashing_service.HashService
 import java.security.PublicKey
 
 class DigitalSignatureService {
-    var encryptionService :RSAEncryptionService = RSAEncryptionService()
+    var encryptionService : RSA = RSA()
     fun getDigitalSignature(s:String): Triple<String, String, PublicKey> {
         var hash = HashService.hashString(s)
         var digitalSignature = encryptionService.encrypt(hash, "private")

@@ -1,8 +1,8 @@
-package cyphers.implementations.classical
+package ciphers.implementations.classical
 
-import cyphers.Cypher
+import ciphers.Cipher
 
-class VigenereCypher(var key: String) : Cypher() {
+class VigenereCipher(var key: String) : Cipher() {
     override fun encrypt(m:String):String{
         var cyphertext =  ""
         var plaintext = m.lowercase()

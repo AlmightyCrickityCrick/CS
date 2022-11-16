@@ -1,4 +1,4 @@
-package cyphers.implementations.classical
+package ciphers.implementations.classical
 
 interface Permutable {
     var permutatedAlphabet:String

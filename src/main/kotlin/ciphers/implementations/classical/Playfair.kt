@@ -1,8 +1,8 @@
-package cyphers.implementations.classical
+package ciphers.implementations.classical
 
-import cyphers.Cypher
+import ciphers.Cipher
 
-class Playfair(var keyword:String): Cypher(), Permutable {
+class Playfair(var keyword:String): Cipher(), Permutable {
     override var permutatedAlphabet:String = ""
     var wheel=Array(5){CharArray(5)}
 

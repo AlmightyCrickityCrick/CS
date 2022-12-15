@@ -195,27 +195,27 @@ Login with simple user
 
 Using ciphers
 
-![Using ciphers](https://github.com/AlmightyCrickityCrick/CS/blob/main/src/main/resources/images/img_1.png)
+![Using ciphers](https://github.com/AlmightyCrickityCrick/CS/blob/main/src/main/resources/images/img_2.png)
 
 Trying to change users from a simple user
 
-![Trying to change users from a simple user](https://github.com/AlmightyCrickityCrick/CS/blob/main/src/main/resources/images/img_1.png)
+![Trying to change users from a simple user](https://github.com/AlmightyCrickityCrick/CS/blob/main/src/main/resources/images/img_3.png)
 
 Login step 1 with admin
 
-![Login step 1 with admin](https://github.com/AlmightyCrickityCrick/CS/blob/main/src/main/resources/images/img_1.png)
+![Login step 1 with admin](https://github.com/AlmightyCrickityCrick/CS/blob/main/src/main/resources/images/img_4.png)
 
 Login step 2 with admin
 
-![Login step 2 with admin](https://github.com/AlmightyCrickityCrick/CS/blob/main/src/main/resources/images/img_1.png)
+![Login step 2 with admin](https://github.com/AlmightyCrickityCrick/CS/blob/main/src/main/resources/images/img_5.png)
 
 Modifying a user with admin
 
-![Modifying a user with admin](https://github.com/AlmightyCrickityCrick/CS/blob/main/src/main/resources/images/img_1.png)
+![Modifying a user with admin](https://github.com/AlmightyCrickityCrick/CS/blob/main/src/main/resources/images/img_6.png)
 
 Checking modification result
 
-![Checking modification result](https://github.com/AlmightyCrickityCrick/CS/blob/main/src/main/resources/images/img_1.png)
+![Checking modification result](https://github.com/AlmightyCrickityCrick/CS/blob/main/src/main/resources/images/img_7.png)
 
 
 
